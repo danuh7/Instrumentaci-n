@@ -1,0 +1,76 @@
+<html>
+<head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background-color: #f2f2f2;
+    }
+
+    .rectangle {
+      width: 300px;
+      height: 200px;
+      background-color: #fff;
+      border: 2px solid #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+    }
+
+    .Titulo {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .corner-image {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 10px;
+    }
+
+    .top-left {
+      left: 10px;
+    }
+
+    .top-right {
+      right: 10px;
+    }
+  </style>
+  <script>
+    function fetchData() {
+      // Realizar una solicitud AJAX a data.php
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          // Actualizar el contenido de un elemento HTML con los datos recibidos
+          document.getElementById("data").innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", "data.php", true);
+      xhttp.send();
+    }
+
+    // Llamar a fetchData() cada segundo para obtener los datos actualizados
+    setInterval(fetchData, 1000);
+  </script>
+</head>
+<body>
+  <h1 class="Titulo">ESCUELA SUPERIOR DE COMPUTO</h1>
+  <h2>INSTRUMENTACIÓN Y CONTROL</h2>
+  <h2>URIBE HERNANDEZ CARLOS DANIEL</h2>
+  <h2>VELAZQUEZ HERNANDEZ ALDO</h2>
+
+  <h3 class="Titulo">Medición de Termistor</h3>
+  <div class="rectangle">
+    <div id="data"></div>
+  </div>
+  <img src="ruta_de_la_imagen" alt="Imagen 1" class="corner-image top-left">
+  <img src="ruta_de_la_imagen" alt="Imagen 2" class="corner-image top-right">
+</body>
+</html>
